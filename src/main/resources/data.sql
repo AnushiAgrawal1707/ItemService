@@ -1,0 +1,1 @@
+insert into authenticate values('anushi1','password',1) on conflict(user_id) do nothing;
