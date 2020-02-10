@@ -1,6 +1,6 @@
 # mykart-user-service
 
-#Pre-requisites:
+# Pre-requisites:
 1. Docker desktop must be installed on your machine.
 2. item service must be running.
 3. You must be in the directory where the docker-compose.yml file is present to run it.
