@@ -1,0 +1,45 @@
+version: '3.7'
+services:
+  user-service:
+    image: anushi1010/user-service:1.1
+    #build:
+    container_name: userservice
+    #context: .
+    #dockerfile: Dockerfile
+    ports:
+      - "5050:5050"
+    restart: always
+    depends_on: # Start the depends_on first
+      - postgres
+    environment:
+      RDS_HOSTNAME: postgres
+      RDS_PORT: 5432
+      RDS_DB_NAME: mykartdb
+      RDS_USERNAME: postgres
+      RDS_PASSWORD: root
+    networks:
+      - mykart-web-application-network
+
+  postgres:
+    image: postgres:12
+    container_name: userservice_postgres
+    ports:
+      - "5430:5432"
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: mykartdb
+    volumes:
+      - postgres-database-data-volume:/var/lib/postgres
+    networks:
+      - mykart-web-application-network
+
+# Volumes
+volumes:
+  postgres-database-data-volume:
+
+networks:
+  mykart-web-application-network:
+    external: true
+    name: mykart-web-application-network
