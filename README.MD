@@ -52,7 +52,7 @@ POST /v1/users/{userId}/carts                -   to add items to cart
 
 GET /v1/users/{userId}/carts/{item_id}       -   to get specific item from cart
 
-PUT /v1/users/{userId}/carts{item_id}         -   to update quantity of item with given identifier
+PUT /v1/users/{userId}/carts                 -   to update quantity of item with given identifier
 
 DELETE /v1/users/{userId}/carts/{itemId}      -   to delete item from cart with given identifier
 
